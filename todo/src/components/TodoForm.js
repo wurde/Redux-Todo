@@ -11,10 +11,20 @@ const React = require('react')
  */
 
 function TodoForm() {
+  function onSubmitHandler(event) {
+    event.preventDefault()
+    console.log('onSubmit')
+  }
+
+  function onChangeHandler() {
+    console.log('onChange')
+  }
+
   return (
-    <div>
-      TodoForm
-    </div>
+    <form onSubmit={onSubmitHandler}>
+      <input type="text" name="description" onChange={onChangeHandler} required />
+      <button type="submit">Add Todo</button>
+    </form>
   )
 }
 

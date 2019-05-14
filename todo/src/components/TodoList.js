@@ -11,12 +11,13 @@ const TodoListItem = require('./TodoListItem')
  * Define component
  */
 
-function TodoList() {
+function TodoList(props) {
+  let todos = [{ description: 'Todo 1', completed: false }, { description: 'Todo 2', completed: true }]
+
   return (
-    <div>
-      TodoList
-      <TodoListItem />
-    </div>
+    <ul>
+      {todos.map(todo => <TodoListItem todo={todo} /> )}
+    </ul>
   )
 }
 

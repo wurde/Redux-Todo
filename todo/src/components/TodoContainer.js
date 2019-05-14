@@ -14,11 +14,21 @@ const TodoList = require('./TodoList')
 
 function TodoContainer() {
   return (
-    <div>
-      TodoContainer
-      <TodoForm />
-      <TodoList />
-    </div>
+    <main>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+
+            <h1 className="mt-4">Todo</h1>
+            <TodoForm />
+            <TodoList />
+
+          </div>
+        </div>
+      </div>
+
+    </main>
   )
 }
 

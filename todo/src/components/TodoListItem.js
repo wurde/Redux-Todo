@@ -10,11 +10,11 @@ const React = require('react')
  * Define component
  */
 
-function TodoListItem() {
+function TodoListItem(props) {
   return (
-    <div>
-      TodoListItem
-    </div>
+    <li>
+      {(props.todo.completed) ? <s>{props.todo.description}</s> : props.todo.description}
+    </li>
   )
 }
 

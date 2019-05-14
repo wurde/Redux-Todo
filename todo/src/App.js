@@ -5,6 +5,17 @@
  */
 
 const React = require('react')
+const redux = require('redux')
+const react_redux = require('react-redux')
+const reducers = require('./reducers/index')
+const components = require('./components/index')
+
+/**
+ * Constants
+ */
+
+const createStore = redux.createStore
+const Provider = react_redux.Provider
 
 /**
  * Import component styles
@@ -13,17 +24,23 @@ const React = require('react')
 require('./App.css')
 
 /**
+ * Define store
+ */
+
+const store = createStore(reducers)
+
+/**
  * Define component
  */
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       TodoContainer
         TodoForm
         TodoList
           TodoListItem
-    </div>
+    </Provider>
   )
 }
 

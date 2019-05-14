@@ -22,6 +22,19 @@ const reducer = (state = initialState, action) => {
       return {
         todos: [...state.todos, { description: action.description, completed: false }]
       }
+    case actions.TOGGLE_TODO_COMPLETED:
+      const new_todos = state.todos.map((todo, i) => {
+        if (i === action.id) {
+          todo.completed = !todo.completed
+          return todo
+        } else {
+          return todo
+        }
+      })
+
+      return {
+        todos: new_todos
+      }
     default:
       return state
   }

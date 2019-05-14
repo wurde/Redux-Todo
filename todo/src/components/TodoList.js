@@ -21,7 +21,7 @@ const connect = react_redux.connect
 function TodoList(props) {
   return (
     <ul>
-      {props.todos.map((todo, i) => <TodoListItem key={i} todo={todo} /> )}
+      {props.todos.map((todo, i) => <TodoListItem key={i} todo={todo} todo_index={i} /> )}
     </ul>
   )
 }

@@ -22,6 +22,10 @@ const reducer = (state = initialState, action) => {
       return {
         todos: [...state.todos, { description: action.description, completed: false }]
       }
+    case actions.REMOVE_TODO:
+      return {
+        todos: state.todos.filter((todo, i) => i !== action.id)
+      }
     case actions.TOGGLE_TODO_COMPLETED:
       const new_todos = state.todos.map((todo, i) => {
         if (i === action.id) {

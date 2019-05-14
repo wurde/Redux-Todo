@@ -14,6 +14,7 @@ const store_actions = require('../store/actions/index')
 
 const connect = react_redux.connect
 const toggleTodoCompleted = store_actions.toggleTodoCompleted
+const removeTodo = store_actions.removeTodo
 
 /**
  * Define component
@@ -22,8 +23,11 @@ const toggleTodoCompleted = store_actions.toggleTodoCompleted
 
 function TodoListItem(props) {
   return (
-    <li onClick={() => props.toggleTodoCompleted(props.todo_index)}>
-      {(props.todo.completed) ? <s>{props.todo.description}</s> : props.todo.description}
+    <li>
+      <span onClick={() => props.toggleTodoCompleted(props.todo_index)}>
+        {(props.todo.completed) ? <s>{props.todo.description}</s> : props.todo.description}
+      </span>
+      <span className="pl-3" style={{ color: '#AAA', cursor: 'pointer' }} onClick={() => props.removeTodo(props.todo_index)}>x</span>
     </li>
   )
 }
@@ -40,4 +44,4 @@ const mapStateToProps = (state) => {
  * Export component
  */
 
-module.exports = connect(mapStateToProps, { toggleTodoCompleted })(TodoListItem)
+module.exports = connect(mapStateToProps, { removeTodo, toggleTodoCompleted })(TodoListItem)

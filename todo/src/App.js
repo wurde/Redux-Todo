@@ -22,7 +22,7 @@ const TodoContainer = components.TodoContainer
  * Import component styles
  */
 
-require('./App.css')
+require('./App.scss')
 
 /**
  * Define store

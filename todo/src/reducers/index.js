@@ -18,6 +18,10 @@ const initialState = { todos: [] }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actions.ADD_TODO:
+      return {
+        todos: [...state.todos, { description: action.description, completed: false }]
+      }
     default:
       return state
   }

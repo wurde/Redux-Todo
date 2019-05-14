@@ -12,7 +12,7 @@ const TodoList = require('./TodoList')
  * Define component
  */
 
-function TodoContainer() {
+function TodoContainer(props) {
   return (
     <main>
 

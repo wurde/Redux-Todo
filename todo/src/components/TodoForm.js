@@ -6,6 +6,7 @@
 
 const React = require('react')
 const react_redux = require('react-redux')
+const actions = require('../actions/index')
 
 /**
  * Constants
@@ -13,6 +14,7 @@ const react_redux = require('react-redux')
 
 const Component = React.Component
 const connect = react_redux.connect
+const addTodo = actions.addTodo
 
 /**
  * Define component
@@ -26,9 +28,10 @@ class TodoForm extends Component {
     }
   }
 
-  onSubmitHandler(event) {
+  onSubmitHandler = (event) => {
     event.preventDefault()
-    console.log('onSubmit')
+    this.props.addTodo(this.state.description)
+    this.setState({ description: '' })
   }
 
   onChangeHandler = (event) => {
@@ -46,7 +49,17 @@ class TodoForm extends Component {
 }
 
 /**
+ * Define state mapping function
+ */
+
+function mapStateToProps(state) {
+  return {
+    description: state.description
+  }
+}
+
+/**
  * Export component
  */
 
-module.exports = connect(null, {})(TodoForm)
+module.exports = connect(mapStateToProps, { addTodo })(TodoForm)

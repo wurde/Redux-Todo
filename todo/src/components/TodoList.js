@@ -16,7 +16,7 @@ function TodoList(props) {
 
   return (
     <ul>
-      {todos.map(todo => <TodoListItem todo={todo} /> )}
+      {todos.map((todo, i) => <TodoListItem key={i} todo={todo} /> )}
     </ul>
   )
 }

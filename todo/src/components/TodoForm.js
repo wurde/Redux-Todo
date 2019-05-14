@@ -5,31 +5,48 @@
  */
 
 const React = require('react')
+const react_redux = require('react-redux')
+
+/**
+ * Constants
+ */
+
+const Component = React.Component
+const connect = react_redux.connect
 
 /**
  * Define component
  */
 
-function TodoForm() {
-  function onSubmitHandler(event) {
+class TodoForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      description: ''
+    }
+  }
+
+  onSubmitHandler(event) {
     event.preventDefault()
     console.log('onSubmit')
   }
 
-  function onChangeHandler() {
-    console.log('onChange')
+  onChangeHandler = (event) => {
+    this.setState({ description: event.target.value })
   }
 
-  return (
-    <form onSubmit={onSubmitHandler}>
-      <input type="text" name="description" onChange={onChangeHandler} required />
-      <button type="submit">Add Todo</button>
-    </form>
-  )
+  render() {
+    return (
+      <form onSubmit={this.onSubmitHandler}>
+        <input type="text" name="description" value={this.state.description} onChange={this.onChangeHandler} required></input>
+        <button type="submit">Add Todo</button>
+      </form>
+    )
+  }
 }
 
 /**
  * Export component
  */
 
-module.exports = TodoForm
+module.exports = connect(null, {})(TodoForm)

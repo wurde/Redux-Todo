@@ -6,7 +6,7 @@
 
 const React = require('react')
 const react_redux = require('react-redux')
-const actions = require('../actions/index')
+const store_actions = require('../store/actions/index')
 
 /**
  * Constants
@@ -14,7 +14,7 @@ const actions = require('../actions/index')
 
 const Component = React.Component
 const connect = react_redux.connect
-const addTodo = actions.addTodo
+const addTodo = store_actions.addTodo
 
 /**
  * Define component

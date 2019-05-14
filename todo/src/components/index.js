@@ -4,4 +4,6 @@
  * Export components
  */
 
-module.exports = { }
+module.exports = {
+  TodoContainer: require('./TodoContainer'),
+}

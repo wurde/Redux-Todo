@@ -16,6 +16,7 @@ const components = require('./components/index')
 
 const createStore = redux.createStore
 const Provider = react_redux.Provider
+const TodoContainer = components.TodoContainer
 
 /**
  * Import component styles
@@ -36,10 +37,7 @@ const store = createStore(reducers)
 function App() {
   return (
     <Provider store={store}>
-      TodoContainer
-        TodoForm
-        TodoList
-          TodoListItem
+      <TodoContainer />
     </Provider>
   )
 }
